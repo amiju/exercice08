@@ -1,0 +1,14 @@
+ex08
+
+?/10
+
+(-1) .gitignore ?
+
+(-2) 8.5
+
+'file:///C:/Users/.../behanzin_olga/exercice08/bin/principal08.dart': Error: line 1 pos 1: unexpected character: '﻿' (U+FEFF)
+
+﻿library principal08;
+
+ne peut pas exécuter
+SVPL verifier le fichier.

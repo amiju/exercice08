@@ -1,4 +1,4 @@
-part of principal08;
+part of exercice8;
 
 //exercice08_01
 randomPhrases(var myElements, var numberOfItems) {
@@ -30,17 +30,17 @@ showall(var associations){
 getSortedMembers(var associations, var associationName) {
   var membersSort = new List();
   var keyIndex;
-  
+
   for (var i = 0; i < associations.length; i++) {
     var association = associations[i];
     if (association.containsValue(associationName)){
       membersSort = association['members'];
       break;
-    }  
+    }
   }
-  
+
   var sortList =  new List();
-  for(var keyMember in membersSort){    
+  for(var keyMember in membersSort){
     sortList.add(keyMember['lastName']);
   }
   sortList.sort((m,n) => m[0].compareTo(n[0]));
@@ -57,25 +57,25 @@ getSortedMembers(var associations, var associationName) {
   }
   print('\nLa liste des membres après le tri: ');
   print(newListMembers);
-  
+
 }
 //Membre dont la premiere lettre commence par lettre
  getSpecificMembers(var letter, var associations) {
   var listMembers = new List();
   var tempoMembers = new List();
-  
+
   for (var i = 0; i < associations.length; i++) {
     var association = associations[i];
     tempoMembers = association['members'];
     for (var member in tempoMembers){
       if (member['lastName'].startsWith(letter)){
         listMembers.add(member);
-      }  
+      }
     }
-   }    
+   }
     print(listMembers);
   }
- 
+
 
 //exercice08_03
 // showall(var associations){
@@ -95,7 +95,7 @@ getSortedMembers(var associations, var associationName) {
        break;
      }
    }
-   
+
    if (check == true){
      print('Cette association existe déjà');
    }else{
@@ -103,21 +103,21 @@ getSortedMembers(var associations, var associationName) {
      newMap['members'] = [];
      associations.add(newMap);
    }
-   
+
    showall(associations);
-   
+
  }
 
  addMember(var associations, var associationName, var memberFirstName, var memberLastName, var memberEmail){
    var newMap = new Map();
    newMap = {'firstName': memberFirstName, 'lastName':  memberLastName, 'email': memberEmail};
-   
+
    for (var i = 0; i < associations.length; i++) {
      var association = associations[i];
      if (association.containsValue(associationName)){
        association['members'].add(newMap);
        break;
-     }  
+     }
    }
    showall(associations);
  }
@@ -126,9 +126,9 @@ getSortedMembers(var associations, var associationName) {
    var newMap = new Map();
    var membersList = new List();
    int indexList;
-   
+
    newMap = {'firstName': memberFirstName, 'lastName':  memberLastName, 'email': memberEmail};
-   
+
    for (var i = 0; i < associations.length; i++) {
      var association = associations[i];
      if (association.containsValue(associationName)){
@@ -136,20 +136,20 @@ getSortedMembers(var associations, var associationName) {
        print(membersList);
        indexList = 0;
        for (var memList in membersList){
-         
-         if (memList['firstName']== memberFirstName && memList['lastName']== memberLastName && 
+
+         if (memList['firstName']== memberFirstName && memList['lastName']== memberLastName &&
              memList['email']== memberEmail){
            membersList.removeAt(indexList);
            break;
          }
          indexList++;
        }
-     }  
+     }
    }
    showall(associations);
  }
 
- updateMember(var associations, var associationName, var oldFirstName, var oldLastName, 
+ updateMember(var associations, var associationName, var oldFirstName, var oldLastName,
      var oldEmail, var newFirstName, var newLastName, var newEmail){
    removeMember(associations, associationName, oldFirstName, oldLastName, oldEmail);
    addMember(associations, associationName, newFirstName, newLastName, newEmail);
@@ -157,7 +157,7 @@ getSortedMembers(var associations, var associationName) {
 
 
 //exercice08_04
- findMaxDepth(var currentDepth, var matrix, var booleen, int i, int j) {  
+ findMaxDepth(var currentDepth, var matrix, var booleen, int i, int j) {
    // Check if i, j (indexes) are within the size of array
    // Check if the cell is already traversed or not using bool array
    // Check if the cell value is 1 before counting it as part of a sector
@@ -190,7 +190,7 @@ getSortedMembers(var associations, var associationName) {
      // diagnol-up traversal
      findMaxDepth(currentDepth, matrix, booleen, i-1, j+1);
    }
-   
+
    return currentDepth;
  }
 
